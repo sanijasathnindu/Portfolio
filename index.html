@@ -428,11 +428,97 @@ I am continuously improving my skills by building real projects, exploring new f
             </div>
         </div>
     </div>
-    
+ 
+    <div class="modal-backdrop-blur"
+     id="reviewModal">
+
+    <div class="premium-glass-card review-modal">
+
+        <button
+            class="close-gate"
+            onclick="closeReviewModal()">
+
+            ×
+
+        </button>
+
+        <h2>
+            Leave a Review
+        </h2>
+
+        <form id="reviewForm">
+
+            <input
+                id="reviewName"
+                placeholder="Full Name">
+
+            <input
+                id="reviewProfile"
+                placeholder="LinkedIn / Profile URL">
+
+            <input
+                id="reviewImage"
+                placeholder="Profile Image URL (Optional)">
+
+            <div class="star-picker">
+
+                5 Star Radio Buttons
+
+            </div>
+
+            <textarea
+                id="reviewMessage"
+                placeholder="Share your experience">
+            </textarea>
+
+            <button
+                type="button"
+                onclick="submitReview()">
+
+                Submit Review
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div class="reviews-drawer"
+     id="reviewsDrawer">
+
+    <div class="drawer-header">
+
+        <h2>
+            Client Reviews
+        </h2>
+
+        <button
+            onclick="closeAllReviewsModal()">
+
+            ×
+
+        </button>
+
+    </div>
+
+    <div class="drawer-content"
+         id="allReviewsContainer">
+
+    </div>
+
+</div>
+
+<div class="drawer-overlay"
+     id="drawerOverlay"
+     onclick="closeAllReviewsModal()">
+</div>
+
+    <script type="module" src="reviews.js"></script>
     <script src="modal-slider.js"></script>
     <script src="main.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="reviews.js"></script>
     <script src="contact.js"></script>
 
 </body>
