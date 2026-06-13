@@ -155,6 +155,10 @@ window.loadReviews = async function () {
 
         if (!window.allReviews.length) {
 
+            reviewTrack.classList.remove(
+                "marquee-active"
+            );
+
             reviewTrack.innerHTML = `
                 <div class="review-empty-state">
                     No approved reviews yet.
@@ -257,6 +261,28 @@ window.loadReviews = async function () {
             reviewTrack.appendChild(card);
 
         });
+        requestAnimationFrame(() => {
+
+    const reviewSection =
+        document.querySelector(
+            ".reviews-marquee-belt"
+        );
+
+    if (
+        !reviewTrack ||
+        !reviewSection
+    ) return;
+
+    const shouldFloat =
+        reviewTrack.scrollWidth >
+        reviewSection.clientWidth;
+
+    reviewTrack.classList.toggle(
+        "marquee-active",
+        shouldFloat
+    );
+
+});
 
     }
     catch (error) {
@@ -334,6 +360,8 @@ function loadAllReviews(){
             "allReviewsContainer"
         );
 
+    if(!container) return;
+
     container.innerHTML = "";
 
     window.allReviews.forEach(data => {
@@ -344,7 +372,9 @@ function loadAllReviews(){
         const avatar =
             data.imageUrl?.trim()
             ||
-            `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name)}`;
+            `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                data.name || "User"
+            )}`;
 
         const card =
             document.createElement("div");
@@ -358,7 +388,13 @@ function loadAllReviews(){
 
                 <img
                     src="${avatar}"
-                    class="review-avatar">
+                    class="review-avatar"
+
+                    onerror="
+                        this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(
+                            data.name || "User"
+                        )}'
+                    ">
 
                 <div>
 
@@ -371,14 +407,19 @@ function loadAllReviews(){
                             <a
                                 href="${profileLink}"
                                 target="_blank"
-                                rel="noopener">
+                                rel="noopener noreferrer"
+                                class="review-profile-link">
 
                                 ${data.name}
 
                             </a>
                             `
                             :
-                            data.name
+                            `
+                            <span class="review-profile-link">
+                                ${data.name}
+                            </span>
+                            `
                         }
 
                         ${
@@ -390,13 +431,13 @@ function loadAllReviews(){
                             </span>
                             `
                             :
-                            ''
+                            ""
                         }
 
                     </h4>
 
                     <div class="review-stars">
-                        ${"★".repeat(data.rating)}
+                        ${"★".repeat(data.rating || 5)}
                     </div>
 
                 </div>
@@ -404,25 +445,94 @@ function loadAllReviews(){
             </div>
 
             <p>
-                ${data.review}
+                ${data.review || ""}
             </p>
+
         `;
 
         container.appendChild(card);
 
+        requestAnimationFrame(() => {
+
+            const reviewText =
+                card.querySelector("p");
+
+            if(!reviewText) return;
+
+            const isOverflowing =
+                reviewText.scrollHeight >
+                reviewText.clientHeight + 25;
+
+            if(isOverflowing){
+
+                card.classList.add(
+                    "has-overflow"
+                );
+
+                card.addEventListener(
+                    "click",
+                    (e) => {
+
+                        if(
+                            e.target.closest("a")
+                        ) return;
+
+                        card.classList.toggle(
+                            "expanded"
+                        );
+
+                    }
+                );
+
+            }
+
+        });
+
     });
+
 }
 
 window.openReviewModal = function () {
 
     document
         .getElementById("reviewModal")
-        ?.classList.add("open");
+        ?.classList.add("is-open");
 };
 
 window.closeReviewModal = function () {
 
     document
         .getElementById("reviewModal")
-        ?.classList.remove("open");
+        ?.classList.remove("is-open");
 };
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        const reviewTrack =
+            document.getElementById(
+                "reviewTrack"
+            );
+
+        const reviewSection =
+            document.querySelector(
+                ".reviews-marquee-belt"
+            );
+
+        if (
+            !reviewTrack ||
+            !reviewSection
+        ) return;
+
+        const shouldFloat =
+            reviewTrack.scrollWidth >
+            reviewSection.clientWidth;
+
+        reviewTrack.classList.toggle(
+            "marquee-active",
+            shouldFloat
+        );
+
+    }
+);

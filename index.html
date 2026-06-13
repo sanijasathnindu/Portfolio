@@ -423,7 +423,6 @@ I am continuously improving my skills by building real projects, exploring new f
                     <div id="modalTechStack" class="modal-tech-stack"></div>
                     <div id="modalMeta" class="modal-meta"></div>
                     <div class="action-hyperlinks" id="modalLinks"></div>
-                    <div class="action-hyperlinks" id="modalLinks"></div>
                 </div>
             </div>
         </div>
@@ -435,12 +434,10 @@ I am continuously improving my skills by building real projects, exploring new f
     <div class="premium-glass-card review-modal">
 
         <button
-            class="close-gate"
-            onclick="closeReviewModal()">
-
-            ×
-
-        </button>
+    class="review-close-btn"
+    onclick="closeReviewModal()">
+    ×
+</button>
 
         <h2>
             Leave a Review
@@ -462,7 +459,20 @@ I am continuously improving my skills by building real projects, exploring new f
 
             <div class="star-picker">
 
-                5 Star Radio Buttons
+                <input type="radio" id="star5" name="reviewRating" value="5">
+                <label for="star5">★</label>
+
+                <input type="radio" id="star4" name="reviewRating" value="4">
+                <label for="star4">★</label>
+
+                <input type="radio" id="star3" name="reviewRating" value="3">
+                <label for="star3">★</label>
+
+                <input type="radio" id="star2" name="reviewRating" value="2">
+                <label for="star2">★</label>
+
+                <input type="radio" id="star1" name="reviewRating" value="1">
+                <label for="star1">★</label>
 
             </div>
 
@@ -495,11 +505,10 @@ I am continuously improving my skills by building real projects, exploring new f
         </h2>
 
         <button
-            onclick="closeAllReviewsModal()">
-
-            ×
-
-        </button>
+    class="drawer-close-btn"
+    onclick="closeAllReviewsModal()">
+    ×
+</button>
 
     </div>
 
