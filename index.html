@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/Profile/tab.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <meta name="description"
+      content="Sanija Jayawickrama - Front-End Developer specializing in HTML, CSS, JavaScript, React, Angular, C#, UI/UX and SaaS web applications.">
+
+    <meta name="keywords"
+      content="Sanija Jayawickrama, Web Developer, Frontend Developer, React Developer, Angular Developer, JavaScript Developer, Portfolio">
+
+    <meta name="author"
+      content="Sanija Jayawickrama">
+
+    <meta name="theme-color"
+      content="#0a1424">
+
+    <meta property="og:title"
+      content="Sanija Jayawickrama | Portfolio">
+
+    <meta property="og:description"
+      content="Front-End Developer specializing in modern SaaS platforms, dashboards, portfolios and responsive web applications.">
+
+    <meta property="og:image"
+      content="assets/images/Profile/banner.png">
+
+    <meta property="og:type"
+      content="website">
+</head>
+<body>
+    <div class="glow-field-matrix" id="matrixGlow"></div>
+
+    <section class="hero-layout">
+    <!-- Left Column -->
+    <div class="hero-left">
+        <!-- Logo centered in the left column -->
+        <div class="profile-circle" id="profileBall" 
+             style="background-image: url('assets/images/Profile/logo-image.jpg');">
+        </div>
+        
+        <!-- Name outside the box -->
+        <h2 class="name-display">Sanija Jayawickrama</h2>
+        
+        <!-- Introduction inside the box -->
+        <div class="intro-box">
+            <p>
+I’m a web developer specializing in building fast, responsive, and visually appealing websites for businesses and individuals. I focus on delivering clean code, modern UI design, and smooth user experiences that help turn visitors into customers. I also pay close attention to performance, accessibility, and detail to ensure every project feels professional and reliable across all devices.
+</p>
+        </div>
+    </div>
+    
+    <!-- Right Column: Banner at 1536x1024 -->
+    <div class="hero-right" id="heroBanner" 
+         style="background-image: url('assets/images/Profile/banner.png');">
+    </div>
+</section>
+
+    <main class="viewport-wrapper">
+        <section class="identity-panel">
+            <p class="eyebrow">Explore</p>
+            <h1 class="glitch-title" id="siteTitle">Work Portfolio</h1>
+        </section>
+
+        <!-- About Module -->
+        <section class="module-container" id="aboutModule">
+            <div class="module-header"><h3 id="aboutTitle">About</h3></div>
+            <div class="about-content" id="aboutDesc" style="color: var(--text-soft); line-height: 1.6; text-align: justify;">
+                <p>
+I am a passionate and detail-oriented front-end developer focused on building modern, responsive, and highly interactive web applications. My main role revolves around HTML, CSS, JavaScript, and UI development using frameworks like React and Angular, combined with strong design understanding from Figma.
+
+<br><br>
+I enjoy turning ideas and designs into fully functional, real-world web experiences. Whether it’s a landing page, dashboard, or full web application, I focus on creating clean, structured, and scalable front-end systems that perform smoothly across all devices and screen sizes.
+
+<br><br>
+With a strong foundation in HTML, CSS, and JavaScript, I pay close attention to layout, spacing, typography, and responsiveness. I also work with modern frameworks like React and Angular to build dynamic, component-based applications that are efficient, maintainable, and user-friendly.
+
+<br><br>
+Alongside front-end development, I have experience in C# for building software applications and working with backend logic. This helps me understand how full systems work beyond the UI, improving my ability to design better structured and more practical web solutions.
+
+<br><br>
+I also use Figma for UI/UX design understanding and workflow planning, which helps me bridge the gap between design and development. This allows me to create interfaces that are visually consistent, intuitive, and aligned with modern design standards.
+
+<br><br>
+I enjoy experimenting with interactive features, animations, and dashboard-style systems where logic and UI come together. My approach is always focused on clean code, reusable components, and performance optimization.
+
+<br><br>
+I am continuously improving my skills by building real projects, exploring new front-end technologies, and refining both my development and design sense. My goal is to grow as a strong front-end developer capable of delivering professional-grade web applications while also expanding my knowledge in software development with C#.
+</p>
+            </div>
+        </section>
+
+        <!-- Dynamic Floating Band: Only appears if project limit exceeded -->
+        <!-- Dynamic Floating Band -->
+<section class="floating-projects-band" id="dynamicFloatBand">
+    <div class="float-lane" id="floatingProjects"></div>
+</section>
+
+<!-- SaaS Filter Bar -->
+<section class="project-filter-bar">
+
+    <div class="filter-header">
+        <div>
+            <p class="eyebrow">Browse</p>
+            <h3>Filter Projects</h3>
+        </div>
+
+        <div class="filter-icon">
+            ⚙
+        </div>
+    </div>
+
+    <div class="filter-pills">
+
+        <button class="filter-pill active" data-filter="all">
+            All
+        </button>
+
+        <button class="filter-pill" data-filter="HTML5">
+            HTML5
+        </button>
+
+        <button class="filter-pill" data-filter="CSS3">
+            CSS3
+        </button>
+
+        <button class="filter-pill" data-filter="JavaScript">
+            JavaScript
+        </button>
+
+        <button class="filter-pill" data-filter="Angular">
+            Angular
+        </button>
+
+        <button class="filter-pill" data-filter="React">
+            React
+        </button>
+
+        <button class="filter-pill" data-filter="Figma">
+            Figma
+        </button>
+
+        <button class="filter-pill" data-filter="C#">
+            C#
+        </button>
+
+    </div>
+
+</section>
+
+<section class="section-heading">
+    <p class="eyebrow">Project archive</p>
+    <h2>All Projects</h2>
+</section>
+        <section class="grid-layout" id="projectsGrid"></section>
+
+        <!-- New: Social Links Module -->
+        <section class="module-container" id="socialLinksModule">
+            <div class="module-header"><p>Available for freelance projects, contracts and collaborations.</p></div>
+            <section class="module-container" id="socialLinksModule">
+
+            <div class="connect-header">
+
+                <div class="connect-header-left">
+                    <h3>Connect</h3>  
+                </div>
+
+                <div class="availability-status">
+                    Open For Work
+                </div>
+
+            </div>
+
+    <div class="contact-grid">
+
+        <a
+            href="https://github.com/sanija123t"
+            target="_blank"
+            class="contact-card">
+
+            <div class="contact-icon">
+                💻
+            </div>
+
+            <h4>GitHub</h4>
+
+            <p>
+                View source code, portfolio projects and development work.
+            </p>
+
+            <div class="contact-footer">
+                <span class="contact-link-label">
+                    Visit Profile
+                </span>
+
+                <span class="contact-arrow">
+                    →
+                </span>
+            </div>
+
+        </a>
+
+        <a
+            href="https://www.linkedin.com/in/sanija-jayawickrama-65a98136a/"
+            target="_blank"
+            class="contact-card">
+
+            <div class="contact-icon">
+                🔗
+            </div>
+
+            <h4>LinkedIn</h4>
+
+            <p>
+                Professional network, experience and career updates.
+            </p>
+
+            <div class="contact-footer">
+                <span class="contact-link-label">
+                    Connect
+                </span>
+
+                <span class="contact-arrow">
+                    →
+                </span>
+            </div>
+
+        </a>
+
+        <a
+            href="#contactSection"
+            class="contact-card">
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+            <h4>Email</h4>
+
+            <p>
+                Let's discuss your next project or business idea.
+            </p>
+
+            <div class="contact-footer">
+                <span class="contact-link-label">
+                    Send Email
+                </span>
+
+                <span class="contact-arrow">
+                    →
+                </span>
+            </div>
+
+        </a>
+
+    </div>
+
+    <div class="connect-cta">
+
+        <div>
+            <h4 style="margin-bottom:8px;">
+                Need a custom website ?
+            </h4>
+
+            <p style="opacity:.7;">
+                Available for web applications, dashboards, portfolio systems and enterprise solutions.
+            </p>
+        </div>
+
+        <a
+            href="#contactSection"
+            class="btn-premium-glass">
+
+            Start a Project
+
+        </a>
+
+    </div>
+
+</section>
+        </section>
+
+        <section class="section-heading reviews-heading">
+            <p class="eyebrow">Client notes</p>
+            <h2>Reviews</h2>
+        </section>
+        <section class="reviews-marquee-belt">
+            <div class="marquee-track" id="reviewTrack"></div>
+            <div class="marquee-controls">
+                <button class="btn-premium-glass" type="button" onclick="openReviewModal()">Add Review</button>
+                <button class="btn-premium-glass secondary" type="button" onclick="openAllReviewsModal()">View All</button>
+            </div>
+        </section>
+
+        <section id="contactSection" class="contact-section">
+
+    <div class="contact-panel">
+
+        <div class="contact-info">
+
+            <p class="eyebrow">
+                Get In Touch
+            </p>
+
+            <h2>
+                Let's Build Something Great
+            </h2>
+
+            <p class="contact-intro">
+                Looking for a website, dashboard, SaaS platform, portfolio system,
+                or custom software solution? Send me a message and let's discuss your project.
+            </p>
+
+            <div class="contact-details">
+
+                <div class="contact-detail">
+                    <span>📍</span>
+                    <div>
+                        <strong>Location</strong>
+                        <p>Sri Lanka</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <span>✉️</span>
+                    <div>
+                        <strong>Email</strong>
+                        <p>sanijasathnindu85@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <span>🟢</span>
+                    <div>
+                        <strong>Status</strong>
+                        <p>Available For New Projects</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="contact-form-panel">
+
+            <form id="contactForm">
+
+                <div class="contact-row">
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your Name"
+                        required>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Your Email"
+                        required>
+
+                </div>
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Project Type / Service"
+                    required>
+
+                <textarea
+                    id="message"
+                    rows="7"
+                    placeholder="Tell me about your project..."
+                    required>
+                </textarea>
+
+                <button
+                    type="submit"
+                    id="submitBtn"
+                    class="btn-premium-glass">
+
+                    Send Message
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+    </main>
+
+    <!-- Modals remain for detail views and submissions -->
+    <div class="modal-backdrop-blur" id="projectModal" aria-hidden="true">
+        <div class="premium-glass-card modal-container project-window">
+            <button class="close-gate" onclick="closeProjectModal()">&times;</button>
+            <div class="modal-split-viewport">
+                <div class="slider-viewport" id="sliderContainer">
+
+    <div class="slider-rail" id="sliderRail"></div>
+
+    <!-- Floating thumbnails generated by JS -->
+    <div class="floating-media-orbits" id="mediaOrbits"></div>
+
+    <div class="slider-nav-arrows">
+        <button onclick="shiftSlide(-1)">
+            &#10094;
+        </button>
+
+        <button onclick="shiftSlide(1)">
+            &#10095;
+        </button>
+    </div>
+
+</div>
+                <div class="modal-copywriting">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <p id="modalDesc"></p>
+                    <div id="modalTechStack" class="modal-tech-stack"></div>
+                    <div id="modalMeta" class="modal-meta"></div>
+                    <div class="action-hyperlinks" id="modalLinks"></div>
+                    <div class="action-hyperlinks" id="modalLinks"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="modal-slider.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="reviews.js"></script>
+    <script src="contact.js"></script>
+
+</body>
+</html>
