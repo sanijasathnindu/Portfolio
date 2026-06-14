@@ -11,42 +11,50 @@ const projects = [
         title: 'Portfolio SaaS',
 
         short_description:
-            'Enterprise portfolio platform.',
+            'Professional portfolio platform.',
 
         detailed_description:
-            'Complete portfolio SaaS with project management, reviews, floating highlights, premium glass UI, advanced project modal system, dashboard integration and dynamic content management.',
+            'Complete portfolio (SaaS type) with project management, reviews, floating reviews and project showcases, premium glass UI, advance animations, advanced project modal system and dynamic content management.',
 
-        category: 'SaaS',
+        category: 'Portfolio',
 
         status: 'Production Ready',
 
-        year: '2025',
+        year: '2026',
 
-        client: 'Internal Product',
+        client: 'Personal Project',
 
         technologies: [
             'HTML5',
             'CSS3',
             'JavaScript',
-            'Figma'
+            'Vanila JS',
         ],
 
-        project_link: '#',
+        project_link: 'https://sanijasathnindu.github.io/Portfolio/',
 
-        github_link: '#',
+        github_link: '',
 
-        documentation_link: '#',
+        documentation_link: '',
 
-        case_study_link: '#',
+        case_study_link: '',
 
         media: [
             {
                 media_type: 'image',
-                media_url: 'assets/projects/project1/1.jpg'
+                media_url: 'assets/images/My Portfolio/portfilo1.webp'
             },
             {
                 media_type: 'image',
-                media_url: 'assets/projects/project1/2.jpg'
+                media_url: 'assets/images/My Portfolio/portfilo2.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/My Portfolio/portfilo3.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/My Portfolio/portfilo4.webp'
             }
         ]
     },
@@ -54,45 +62,49 @@ const projects = [
     {
         project_id: 'project-2',
 
-        title: 'CRM Dashboard',
+        title: 'Gaming E-commerce & Service Platform',
 
         short_description:
-            'Modern customer management system.',
+            'Modern e-commerce platform for the gaming community, facilitating secure transactions for digital services.',
 
         detailed_description:
-            'Enterprise CRM dashboard featuring customer lifecycle tracking, sales analytics, reporting, workflow automation and management tools.',
+            'I designed and developed an end-to-end e-commerce platform for the gaming community, facilitating secure transactions for digital services. The project involved building a responsive, high-performance interface with real-time UI/UX elements, integrated payment gateway logic, and a dynamic backend to manage service fulfillment and user requests. This platform demonstrates my capability to build scalable web applications that bridge complex backend automation with a sleek, user-friendly frontend.',
 
-        category: 'Dashboard',
+        category: 'Web Application',
 
         status: 'Completed',
 
-        year: '2025',
+        year: '2026',
 
-        client: 'Demo Corporation',
+        client: 'Mr. Ravi',
 
         technologies: [
-            'React',
+            'HTML5',
             'CSS3',
             'JavaScript',
             'Figma'
         ],
 
-        project_link: '#',
+        project_link: 'https://mrravistore.live/',
 
-        github_link: '#',
+        github_link: '',
 
-        documentation_link: '#',
+        documentation_link: '',
 
-        case_study_link: '#',
+        case_study_link: '',
 
         media: [
             {
                 media_type: 'image',
-                media_url: 'assets/projects/project2/1.jpg'
+                media_url: 'assets/images/mrravistore/ravistore1.webp'
             },
             {
                 media_type: 'image',
-                media_url: 'assets/projects/project2/2.jpg'
+                media_url: 'assets/images/mrravistore/ravistore2.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/mrravistore/ravistore3.webp'
             }
         ]
     },
@@ -100,40 +112,42 @@ const projects = [
     {
         project_id: 'project-3',
 
-        title: 'Booking Platform',
+        title: 'Enterprise POS Management System',
 
         short_description:
-            'Appointment booking application.',
+            'Business-focused desktop POS and inventory management solution.',
 
         detailed_description:
-            'Booking platform with appointment scheduling, notifications, customer management and admin dashboard.',
+            'Enterprise-grade Point of Sale (POS) desktop application built with C#, WinForms, and SQLite. Designed for real-world retail and business environments, featuring sales processing, inventory control, transaction management, customer records, and advanced reporting. Implemented an optimized SQLite database architecture with secure data handling, automated backup systems, update mechanisms, performance optimization, and robust error management. The application follows a modular code structure for maintainability, scalability, and future feature expansion while delivering a responsive and user-friendly desktop experience.',
 
-        category: 'Web Application',
+        category: 'Desktop Application',
 
         status: 'Completed',
 
         year: '2024',
 
-        client: 'Appointment Solutions',
+        client: 'Personal Project',
 
         technologies: [
-            'Angular',
-            'CSS3',
-            'JavaScript'
+            'C#',
+            'WinForms',
+            'SQLite',
+            '.NET Framework',
+            'ADO.NET'
         ],
 
-        project_link: '#',
+        project_link: '',
 
-        github_link: '#',
+        github_link: 'https://github.com/sanija123t/PosSystem',
 
-        documentation_link: '#',
+        documentation_link: '#contactSection',
 
-        case_study_link: '#',
+        case_study_link: '',
 
         media: [
             {
-                media_type: 'image',
-                media_url: 'assets/projects/project3/1.jpg'
+            media_type: 'video',
+            media_url: 'assets/videos/POS-Standard/pos-standard.mp4'
             }
         ]
     },
@@ -141,86 +155,131 @@ const projects = [
     {
         project_id: 'project-4',
 
-        title: 'Restaurant Website',
+        title: 'Enterprise POS Management System (Premium Version)',
 
         short_description:
-            'Modern restaurant showcase.',
+            'Advanced offline POS solution with inventory, reporting and barcode management.',
 
         detailed_description:
-            'Restaurant website with menu management, online reservations, location integration and responsive design.',
+            'Enterprise-grade Point of Sale (POS) system built with WPF and .NET 10, designed for retail stores and single-device business environments. Features high-speed sales processing, advanced inventory management, role-based user access, activity logging, comprehensive business analytics, profit and expense tracking, and detailed financial reporting. Includes multi-camera barcode scanning, mobile phone barcode scanner integration, bill generation and printing, support for multiple barcode scanners, automated local and Google Drive backups, and a highly optimized SQLite database for maximum performance. Developed as a lightweight, plug-and-play offline solution with a modern interface, low resource consumption, and reliable day-to-day operation.',
 
-        category: 'Business Website',
+        category: 'Desktop Application',
 
         status: 'Completed',
 
-        year: '2024',
+        year: '2025',
 
-        client: 'Restaurant Client',
+        client: 'Personal Project',
 
         technologies: [
-            'HTML5',
-            'CSS3',
-            'JavaScript'
+            'WPF',
+            '.NET 10',
+            'C#',
+            'SQLite',
+            'MVVM',
+            'Google Drive API'
         ],
 
-        project_link: '#',
+        project_link: 'https://contra.com/products/8k3bZXFW-solo-pos-premium-single-station-retail-management-software',
 
-        github_link: '#',
+        github_link: '',
 
-        documentation_link: '#',
+        documentation_link: 'https://contra.com/products/8k3bZXFW-solo-pos-premium-single-station-retail-management-software',
 
-        case_study_link: '#',
+        case_study_link: '',
 
         media: [
-            {
-                media_type: 'image',
-                media_url: 'assets/projects/project4/1.jpg'
-            }
-        ]
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos1.webp'
     },
-
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos2.webp'
+    },
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos3.webp'
+    },
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos4.webp'
+    },
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos5.webp'
+    },
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos6.webp'
+    },
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos7.webp'
+    },
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos8.webp'
+    },
+    {
+        media_type: 'image',
+        media_url: 'assets/images/Enterprise POS Management System (Premium Version)/pos9.webp'
+    }
+    ]
+    },
     {
         project_id: 'project-5',
 
-        title: 'E-Commerce Store',
+        title: 'SxS Optimizer',
 
         short_description:
-            'Online shopping experience.',
+            'Advanced Windows optimization and performance management platform.',
 
         detailed_description:
-            'Premium ecommerce storefront with product catalog, shopping cart, checkout flow and responsive customer experience.',
+            'Professional Windows optimization utility developed with WPF and C#. Designed to improve system responsiveness, gaming performance, and overall operating system efficiency through automated optimization profiles and advanced system tuning. Features secure license activation, hardware fingerprint validation, user account management, optimization presets, startup and service management, system cleanup tools, performance monitoring, backup and restore functionality, and detailed optimization reporting. Built with a modern user interface, lightweight architecture, and secure activation workflow to provide a reliable optimization experience for both everyday users and power users.',
 
-        category: 'E-Commerce',
+        category: 'Desktop Application',
 
-        status: 'Production Ready',
+        status: 'Completed',
 
         year: '2025',
 
-        client: 'Retail Brand',
+        client: 'SxS Software Solutions',
 
         technologies: [
-            'React',
-            'CSS3',
-            'JavaScript',
-            'Figma'
+            'WPF',
+            'C#',
+            '.NET',
+            'SQLite',
+            'Windows API',
+            'MVVM',
+            'REST API'
         ],
 
-        project_link: '#',
+        project_link: 'https://mrravistore.live/optimizer.html',
 
-        github_link: '#',
+        github_link: '',
 
-        documentation_link: '#',
+        documentation_link: 'https://sanija-sathnindu.w3spaces.com/SxS-Optimizer/SxS-Optimizer.html',
 
-        case_study_link: '#',
+        case_study_link: '',
 
         media: [
             {
                 media_type: 'image',
-                media_url: 'assets/projects/project5/1.jpg'
+                media_url: 'assets/images/SxS Optimizer/sxs1.webp'
             },
             {
                 media_type: 'image',
-                media_url: 'assets/projects/project5/2.jpg'
+                media_url: 'assets/images/SxS Optimizer/sxs2.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/SxS Optimizer/sxs3.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/SxS Optimizer/sxs4.webp'
             }
         ]
     }
