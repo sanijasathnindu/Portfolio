@@ -122,6 +122,39 @@ window.submitReview = async function () {
 
 window.allReviews = [];
 
+// Auto-converts Google Drive share links into raw image links
+function parseImageUrl(url) {
+
+    if (!url || !url.trim()) {
+        return "";
+    }
+
+    url = url.trim();
+
+    // Google Drive share links
+    if (url.includes("drive.google.com")) {
+
+        // /file/d/FILE_ID/view
+        let match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+
+        if (match && match[1]) {
+            return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+        }
+
+        // ?id=FILE_ID
+        match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+        if (match && match[1]) {
+            return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+        }
+    }
+
+    // Everything else:
+    // Googleusercontent, Imgur, GitHub, Cloudinary,
+    // Firebase Storage, S3, direct JPG/PNG, etc.
+    return url;
+}
+
 window.loadReviews = async function () {
 
     const reviewTrack =
@@ -139,19 +172,18 @@ window.loadReviews = async function () {
             orderBy("createdAt", "desc")
         );
 
-        const snapshot =
-            await getDocs(reviewsQuery);
+        const snapshot = await getDocs(reviewsQuery);
 
-        window.allReviews = [];
+            window.allReviews = [];
 
-        snapshot.forEach(docSnap => {
+            snapshot.forEach(docSnap => {
 
-            window.allReviews.push({
-                id: docSnap.id,
-                ...docSnap.data()
+                window.allReviews.push({
+                    id: docSnap.id,
+                    ...docSnap.data()
+                });
+
             });
-
-        });
 
         if (!window.allReviews.length) {
 
@@ -177,11 +209,9 @@ window.loadReviews = async function () {
 
         homepageReviews.forEach(data => {
 
-            const avatar =
-                data.imageUrl &&
-                data.imageUrl.trim() !== ''
-                    ? data.imageUrl
-                    : `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name || "User")}`;
+            const avatar = data.imageUrl && data.imageUrl.trim() !== '' 
+                ? parseImageUrl(data.imageUrl) 
+                : `https://ui-avatars.com/api/?name=${encodeURIComponent(data.name || "User")}`;
 
             const stars =
                 "★".repeat(data.rating || 5);
@@ -218,12 +248,8 @@ window.loadReviews = async function () {
 
                     <img
                         src="${avatar}"
-                        alt="${data.name}"
                         class="review-avatar"
-
-                        onerror="
-                            this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(data.name || "User")}';
-                        "
+                        onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(data.name || 'User')}';"
                     >
 
                     <div class="review-user-info">
@@ -371,10 +397,10 @@ function loadAllReviews(){
 
         const avatar =
             data.imageUrl?.trim()
-            ||
-            `https://ui-avatars.com/api/?name=${encodeURIComponent(
-                data.name || "User"
-            )}`;
+                ? parseImageUrl(data.imageUrl)
+                : `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                    data.name || "User"
+                )}`;
 
         const card =
             document.createElement("div");
@@ -389,12 +415,9 @@ function loadAllReviews(){
                 <img
                     src="${avatar}"
                     class="review-avatar"
-
-                    onerror="
-                        this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(
-                            data.name || "User"
-                        )}'
-                    ">
+                    onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(
+                        data.name || "User"
+                    )}';">
 
                 <div>
 
