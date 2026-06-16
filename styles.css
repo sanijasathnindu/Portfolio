@@ -2268,6 +2268,8 @@ form input::file-selector-button {
     opacity:0;
 
     transition:.35s;
+
+    pointer-events:none;
 }
 
 .review-card:hover{
@@ -2317,6 +2319,9 @@ form input::file-selector-button {
 .review-profile-link{
     color:#fff;
     text-decoration:none;
+
+    position:relative;
+    z-index:2;
 }
 
 .review-profile-link:hover{

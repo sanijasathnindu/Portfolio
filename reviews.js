@@ -216,14 +216,16 @@ window.loadReviews = async function () {
             const stars =
                 "★".repeat(data.rating || 5);
 
+            const profileUrl = data.profileUrl?.trim() || "";
+
             const hasProfile =
-                data.profileUrl &&
-                data.profileUrl.trim() !== '';
+                profileUrl !== "" &&
+                profileUrl !== "$";
 
             const nameHTML = hasProfile
                 ? `
                     <a
-                        href="${data.profileUrl}"
+                        href="${profileUrl}"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="review-profile-link">
