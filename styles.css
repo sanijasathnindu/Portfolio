@@ -2566,3 +2566,106 @@ form input::file-selector-button {
         rgba(83,228,255,.3);
 }
 
+.modal-backdrop-blur {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: 0.25s ease;
+    z-index: 9999;
+}
+
+.modal-backdrop-blur.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.premium-glass-card.payment-modal {
+    width: min(420px, 92vw);
+    padding: 28px;
+    border-radius: 20px;
+
+    background: rgba(20, 20, 30, 0.75);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+
+    position: relative;
+
+    animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.92);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* CLOSE BUTTON — THIS is your main fix */
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background: rgba(255,255,255,0.06);
+    color: white;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255,255,255,0.12);
+    transform: scale(1.05);
+}
+
+/* PayPal container */
+.paypal-shell {
+    margin-top: 16px;
+    padding: 16px;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(10px);
+}
+
+.contra-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.contra-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}

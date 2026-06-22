@@ -8,7 +8,7 @@ const projects = [
     {
         project_id: 'project-1',
 
-        title: 'Portfolio SaaS',
+        title: 'Portfolio (SaaS Type)',
 
         short_description:
             'Professional portfolio platform.',
@@ -38,6 +38,15 @@ const projects = [
         documentation_link: '',
 
         case_study_link: '',
+
+        payment: {
+        enabled: true,
+        price: 19.99,
+        currency: "USD",
+        product_name: "Portfolio (SaaS Type)",
+        download_link: "https://www.dropbox.com/scl/fi/s4geg0d8fp0dxdphkeft5/Portfolio.7z?rlkey=0ucmla4tb2t86l50ck1dhxgwt&st=c58u5i0h&dl=1",
+        contra_link: "https://contra.com/products/xvTzi7uV-premium-portfolio-with-dynamic-features-for-anyone"
+        },
 
         media: [
             {
@@ -93,6 +102,15 @@ const projects = [
 
         case_study_link: '',
 
+        payment: {
+        enabled: false,
+        price: 19.99,
+        currency: "USD",
+        product_name: "Gaming E-commerce & Service Platform",
+        download_link: "",
+        contra_link: ""
+        },
+
         media: [
             {
                 media_type: 'image',
@@ -144,6 +162,15 @@ const projects = [
 
         case_study_link: '',
 
+        payment: {
+        enabled: true,
+        price: 60.00,
+        currency: "USD",
+        product_name: "Enterprise POS Management System",
+        download_link: "https://www.dropbox.com/scl/fi/1n2ubhe36yitlbblnb3so/V1.2.0.0-EXE.7z?rlkey=eog9u9xhnl4xn9ne9doiutxei&st=hmnh12tj&dl=1",
+        contra_link: ""
+        },
+
         media: [
             {
             media_type: 'video',
@@ -187,6 +214,15 @@ const projects = [
         documentation_link: 'https://contra.com/products/8k3bZXFW-solo-pos-premium-single-station-retail-management-software',
 
         case_study_link: '',
+
+        payment: {
+        enabled: true,
+        price: 159,
+        currency: "USD",
+        product_name: "Enterprise POS Management System (Premium Version)",
+        download_link: "",
+        contra_link: "https://contra.com/products/8k3bZXFW-solo-pos-premium-single-station-retail-management-software"
+        },
 
         media: [
     {
@@ -236,7 +272,7 @@ const projects = [
             'Advanced Windows optimization and performance management platform.',
 
         detailed_description:
-            'Professional Windows optimization utility developed with WPF and C#. Designed to improve system responsiveness, gaming performance, and overall operating system efficiency through automated optimization profiles and advanced system tuning. Features secure license activation, hardware fingerprint validation, user account management, optimization presets, startup and service management, system cleanup tools, performance monitoring, backup and restore functionality, and detailed optimization reporting. Built with a modern user interface, lightweight architecture, and secure activation workflow to provide a reliable optimization experience for both everyday users and power users.',
+            'Professional Windows optimization utility developed with WPF and C#. Designed to improve system responsiveness, gaming performance, and overall operating system efficiency through automated optimization profiles and advanced system tuning. Features secure license activation, hardware fingerprint validation, user account management, optimization presets, startup and service management, system cleanup tools, performance monitoring, backup and restore functionality, and detailed optimization reporting. Built with a modern user interface, lightweight architecture, and secure activation workflow to provide a reliable optimization experience for both everyday users and power users. !! Contact after Buying !!',
 
         category: 'Desktop Application',
 
@@ -264,6 +300,15 @@ const projects = [
 
         case_study_link: '',
 
+        payment: {
+        enabled: true,
+        price: 5.99,
+        currency: "USD",
+        product_name: "SxS Optimizer",
+        download_link: "https://www.dropbox.com/scl/fi/xq3bnmtxuxly58lv0rt8g/SxS_Optimizer_Setup_v1.2.0.0.exe?rlkey=rvt9356hl9udr6plu46um8ww1&st=74fxb0xd&dl=1",
+        contra_link: ""
+        },
+
         media: [
             {
                 media_type: 'image',
@@ -280,6 +325,55 @@ const projects = [
             {
                 media_type: 'image',
                 media_url: 'assets/images/SxS Optimizer/sxs4.webp'
+            }
+        ]
+    },
+    {
+        project_id: 'project-6',
+
+        title: 'Dark & Red Portfolio Template',
+
+        short_description:
+            'Dark & Red - Modern Portfolio Template Project',
+
+        detailed_description:
+            'Designed and hand-coded a highly responsive, modern transactional email notification template for a SaaS platform. Unlike standard web development, email clients rely on heavily outdated rendering engines. To ensure flawless delivery, I structured this layout using traditional hybrid tables and inline CSS styling to maintain visual integrity across strict clients like Microsoft Outlook (Word engine), while implementing fluid typography and responsive media queries for modern mobile platforms like Apple Mail and Gmail. The template includes dynamic data hooks for seamless backend injection.',
+
+        category: 'Portfolio',
+
+        status: 'Completed',
+
+        year: '2026',
+
+        client: '',
+
+        technologies: [
+            'HTML5',
+            'CSS3',
+            'React'
+        ],
+
+        project_link: '',
+
+        github_link: '',
+
+        documentation_link: '',
+
+        case_study_link: '',
+
+        payment: {
+        enabled: false,
+        price: 19.99,
+        currency: "USD",
+        product_name: "Dark & Red Template Pack",
+        download_link: "",
+        contra_link: ""
+        },
+
+        media: [
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Portfolio - Dark & Red/portfolio.PNG'
             }
         ]
     }
@@ -494,18 +588,18 @@ function spawnAbstractCanvasElements() {
 ========================== */
 
 function openModal(id) {
-
-    const modal =
-        document.getElementById(id);
-
+    const modal = document.getElementById(id);
     if (!modal) return;
 
     modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
 
-    modal.setAttribute(
-        'aria-hidden',
-        'false'
-    );
+    // wait for layout paint properly
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            modal.dispatchEvent(new Event("modal-opened"));
+        });
+    });
 }
 
 function closeModal(id) {
@@ -524,6 +618,165 @@ function closeModal(id) {
 }
 
 /* ==========================
+   Paypal Integration
+========================== */
+
+const PayPalCheckout = (function () {
+
+  let sdkLoaded = false;
+
+  // -----------------------------
+  // Load PayPal SDK only once
+  // -----------------------------
+function loadSDK(clientId, currency) {
+    return new Promise((resolve, reject) => {
+
+        if (window.paypal?.Buttons) return resolve();
+
+        const script = document.createElement("script");
+        script.src =
+          `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=${currency}&intent=capture&components=buttons&disable-funding=credit`;
+
+        script.onload = () => {
+            resolve();
+        };
+
+        script.onerror = () => {
+            reject("PayPal SDK failed to load");
+        };
+
+        document.head.appendChild(script);
+    });
+}
+
+  // -----------------------------
+  // Token generator
+  // -----------------------------
+  function generateToken() {
+    return (
+      "tok_" +
+      Math.random().toString(36).substring(2, 10) +
+      Date.now()
+    );
+  }
+
+  // -----------------------------
+  // Main reusable button
+  // -----------------------------
+  async function createPayPalButton({
+    containerId,
+    clientId,
+    productId,
+    productName,
+    price,
+    currency = "USD",
+    successRedirect = "success.html",
+    metadata = {}
+  }) {
+
+    await loadSDK(clientId, currency);
+
+    // prevent duplicate render
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    window.paypal.Buttons({
+
+      style: {
+        layout: "vertical",
+        color: "gold",
+        shape: "rect",
+        label: "paypal"
+      },
+
+      // -----------------------------
+      // Create Order
+      // -----------------------------
+      createOrder: (data, actions) => {
+        return actions.order.create({
+          purchase_units: [{
+            description: productName,
+            amount: {
+              currency_code: currency,
+              value: Number(price).toFixed(2)     // Required: convert number to string
+            },
+            custom_id: productId,
+            invoice_id: "INV-" + Date.now()
+          }]
+        });
+      },
+
+      // -----------------------------
+      // Payment Approved
+      // -----------------------------
+      onApprove: (data, actions) => {
+        return actions.order.capture().then(() => {
+
+          console.log("PAYPAL CAPTURE SUCCESS");
+
+            try {
+
+            const token = generateToken();
+
+            let purchases = JSON.parse(localStorage.getItem("purchases") || "{}");
+
+            if (purchases[productId]?.paid) {
+                alert("You already purchased this item.");
+                window.location.href = `${successRedirect}?token=${purchases[productId].token}`;
+                return;
+            }
+
+            purchases[productId] = {
+                paid: true,
+                token: token,
+                time: Date.now(),
+                meta: {
+                productName,
+                price,
+                ...metadata
+                }
+            };
+
+            localStorage.setItem("purchases", JSON.stringify(purchases));
+
+            let tokens = JSON.parse(localStorage.getItem("tokens") || "{}");
+
+            tokens[token] = {
+                productId,
+                used: false,
+                downloadLink: metadata?.downloadLink || ""
+            };
+
+            localStorage.setItem("tokens", JSON.stringify(tokens));
+
+            sessionStorage.setItem("last_purchase", productId);
+
+            const redirectURL = `${successRedirect}?token=${token}`;
+
+            console.log("REDIRECTING:", redirectURL);
+
+            window.location.assign(redirectURL);
+
+            } catch (err) {
+            console.error("PAYMENT ERROR:", err);
+            alert("Payment succeeded but something broke. Check console.");
+            }
+
+        });
+      }
+
+    }).render(`#${containerId}`);
+  }
+
+  return {
+    createPayPalButton
+  };
+
+})();
+
+/* ==========================
    SECURITY
 ========================== */
 
@@ -540,3 +793,36 @@ function escapeHTML(value = '') {
         }[character])
     );
 }
+
+window.handlePurchase = function(projectId) {
+
+    const project = projects.find(p => p.project_id === projectId);
+
+    if (!project?.payment?.enabled) {
+        alert("This project is not for sale.");
+        return;
+    }
+
+    const modal = document.getElementById("paymentModal");
+
+    openModal("paymentModal");
+
+    modal.addEventListener("modal-opened", () => {
+
+        const container = document.getElementById("paypalContainer");
+        container.innerHTML = "";
+
+        PayPalCheckout.createPayPalButton({
+        containerId: "paypalContainer",
+        clientId: "AQ9baynIk3TlnEZ4YNr40t9IhTsnCB3-LpPJUcAw9zHRgNwCpOiHkNsepfRDB9LnC0h57G3L3akVkPrd",
+        productId: project.project_id,
+        productName: project.payment.product_name,
+        price: project.payment.price,
+        currency: project.payment.currency,
+        metadata: {
+            downloadLink: project.payment.download_link
+        }
+    });
+
+    }, { once: true });
+};

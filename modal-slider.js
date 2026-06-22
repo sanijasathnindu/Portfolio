@@ -102,6 +102,31 @@ function launchProjectPresenter(project) {
         `;
     }
 
+    if (project.payment?.contra_link) {
+
+        linksBin.innerHTML += `
+            <a href="${project.payment.contra_link}"
+            target="_blank"
+            rel="noopener"
+            class="btn-premium-glass secondary">
+
+                Buy on Contra
+
+            </a>
+        `;
+    }
+
+    if (project.payment?.enabled) {
+        linksBin.innerHTML += `
+            <button class="btn-premium-glass buy-btn"
+                onclick="handlePurchase('${project.project_id}')">
+
+                Buy Now - $${project.payment.price}
+
+            </button>
+        `;
+    }
+
     if (project.case_study_link) {
 
         linksBin.innerHTML += `

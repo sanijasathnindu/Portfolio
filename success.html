@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Purchase Successful</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Outfit",sans-serif;
+    background:
+        radial-gradient(circle at top right,#ff3b3b22,transparent 35%),
+        radial-gradient(circle at bottom left,#ffb70022,transparent 35%),
+        #090d16;
+    color:white;
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:550px;
+    padding:40px;
+    border-radius:24px;
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+}
+
+.success-icon{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+p{
+    opacity:.75;
+    line-height:1.6;
+    margin-bottom:28px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+
+    padding:15px 28px;
+
+    border-radius:14px;
+
+    font-size:15px;
+    font-weight:700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd54f,
+            #ffb300
+        );
+
+    color:#111;
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.error{
+    color:#ff6b6b;
+}
+
+.small{
+    margin-top:18px;
+    font-size:13px;
+    opacity:.55;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card" id="content">
+
+    <div class="success-icon">⏳</div>
+
+    <h1>Loading...</h1>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+
+    const content = document.getElementById("content");
+
+    if (!token) {
+        showError("Missing token in URL");
+        return;
+    }
+
+    let tokens = {};
+
+    try {
+        tokens = JSON.parse(localStorage.getItem("tokens") || "{}");
+    } catch (e) {
+        showError("Storage corrupted");
+        return;
+    }
+
+    const order = tokens[token];
+
+    if (!order) {
+        showError("Invalid or expired purchase");
+        return;
+    }
+
+    const downloadLink = order.downloadLink;
+
+    if (!downloadLink) {
+        showWarning("Download not configured");
+        return;
+    }
+
+    showSuccess(downloadLink);
+
+    function showError(msg) {
+        content.innerHTML = `
+            <div class="success-icon">❌</div>
+            <h1 class="error">Invalid Purchase</h1>
+            <p>${msg}</p>
+        `;
+    }
+
+    function showWarning(msg) {
+        content.innerHTML = `
+            <div class="success-icon">⚠️</div>
+            <h1 class="error">Warning</h1>
+            <p>${msg}</p>
+        `;
+    }
+
+    function showSuccess(downloadLink) {
+        content.innerHTML = `
+            <div class="success-icon">🎉</div>
+            <h1>Payment Successful</h1>
+            <p>Your download is ready.</p>
+
+            <button class="btn" id="downloadBtn">
+                Download File
+            </button>
+
+            <div class="small">
+                You can download anytime from this page.
+            </div>
+        `;
+
+        document.getElementById("downloadBtn").addEventListener("click", () => {
+            window.open(downloadLink, "_blank");
+        });
+    }
+
+});
+</script>
+
+</body>
+</html>
