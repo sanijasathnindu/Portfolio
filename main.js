@@ -376,7 +376,93 @@ const projects = [
                 media_url: 'assets/images/Portfolio - Dark & Red/portfolio.PNG'
             }
         ]
+    },
+    {
+        project_id: 'project-7',
+
+        title: 'Luxury Villa Landing Page',
+
+        short_description:
+            'Premium Luxury Villa, Resort & Boutique Hotel Landing Page',
+
+        detailed_description:
+            'Designed and developed a premium luxury landing page tailored for villas, boutique hotels, resorts, and vacation rentals. The project focuses on delivering an elegant digital experience through a modern visual identity, immersive imagery, smooth animations, and a conversion-driven layout. Built with Next.js, React, TypeScript, and Tailwind CSS, the website emphasizes exceptional performance, SEO optimization, responsive design, and reusable component architecture. Every section was carefully crafted to showcase luxury hospitality brands while providing visitors with an engaging browsing experience across desktop, tablet, and mobile devices. The project demonstrates modern frontend development practices, clean code architecture, accessibility, and a strong emphasis on user experience and business conversions.',
+
+        category: 'Hospitality',
+
+        status: 'Completed',
+
+        year: '2026',
+
+        client: '',
+
+        technologies: [
+            'Next.js',
+            'React',
+            'TypeScript',
+            'Tailwind CSS',
+            'Framer Motion',
+            'Lucide React'
+        ],
+
+        project_link: '',
+
+        github_link: '',
+
+        documentation_link: 'https://contra.com/products/rgb45oN7-luxury-villa-landing-page-or-premium-nextjs-template',
+
+        case_study_link: '',
+
+        payment: {
+            enabled: true,
+            price: 98.99,
+            currency: "USD",
+            product_name: "Luxury Villa Landing Page",
+            download_link: "https://www.dropbox.com/scl/fi/mk41n57kjw046wswf6v4b/luxury-villa.zip?rlkey=dakxq10nw1u5nlg77k1oemej2&st=cpxi7rkd&dl=1",
+            contra_link: "https://contra.com/products/rgb45oN7-luxury-villa-landing-page-or-premium-nextjs-template"
+        },
+
+        media: [
+            {
+                media_type: 'video',
+                media_url: 'assets/videos/Luxury Villa Template/Rew.mp4'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture.PNG'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture1.PNG'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture2.PNG'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture3.PNG'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture4.PNG'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture5.PNG'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture6.PNG'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Luxury Villa Template/Capture7.PNG'
+            }
+        ]
     }
+
+
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
