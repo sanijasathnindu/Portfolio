@@ -460,6 +460,96 @@ const projects = [
                 media_url: 'assets/images/Luxury Villa Template/Capture7.PNG'
             }
         ]
+    },
+    {
+        project_id: 'project-8',
+
+        title: 'Premium Yala Safari Website',
+
+        short_description:
+            'A modern, responsive tourism website designed for Apex Tours, offering premium private safari experiences in Yala National Park, Sri Lanka.',
+
+        detailed_description:
+            "Apex Tours is an immersive, fully responsive safari tourism website created to showcase private and luxury jeep tours in Yala National Park. The website combines a premium nature-inspired visual identity with smooth animations and interactive elements to deliver an engaging user experience.The website includes detailed safari packages, wildlife information, an interactive safari journey, image galleries, customer testimonials, frequently asked questions, availability checking and contact sections. A responsive navigation system and mobile menu ensure that the website works effectively across desktop, tablet and mobile devices.The project also includes interactive counters, horizontal scrolling sections, animated content reveals, parallax effects, tilt interactions, magnetic buttons, form validation and dynamic availability results. Accessibility features such as semantic HTML, keyboard navigation, descriptive image text, reduced-motion support and visible focus states were also incorporated.Search engine optimisation was considered through metadata, Open Graph tags, Twitter Card information, canonical URLs and Schema.org structured data. The overall design uses a premium green, gold and cream colour palette inspired by Sri Lanka’s natural environment and wildlife tourism industry.",
+
+        category: 'Travel and Tourism Website',
+
+        status: 'Completed',
+
+        year: '2026',
+
+        client: '',
+
+        technologies: [
+            'HTML5',
+            'CSS3',
+            'Vanilla JavaScript',
+            'GSAP'
+        ],
+
+        project_link: 'https://sanijasathnindu.github.io/apex-tours-yala/',
+
+        github_link: '',
+
+        documentation_link: '',
+
+        case_study_link: '',
+
+        payment: {
+        enabled: true,
+        price: 39.00,
+        currency: "USD",
+        product_name: "Premium Yala Safari Website",
+        download_link: "https://www.dropbox.com/scl/fi/wtemr62fjlkfppgt8drvh/Safari-Site.zip?rlkey=prk4un0pscxrj8p9m6h1nikgb&st=byl0jqpq&dl=1",
+        contra_link: ""
+        },
+
+        media: [
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari2.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari3.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari4.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari5.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari6.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari7.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari8.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari9.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari10.webp'
+            },
+            {
+                media_type: 'image',
+                media_url: 'assets/images/Wild-Safari/safari11.webp'
+            }
+        ]
     }
 
 
